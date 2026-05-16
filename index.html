@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose & Gifts 🌹</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --rose: #c9748f;
+            --rose-light: #f5dde5;
+            --rose-dark: #9e4f6a;
+            --beige: #faf7f4;
+            --beige-mid: #f0ebe4;
+            --text-dark: #2c2c2a;
+            --text-mid: #5f5e5a;
+            --text-light: #9e9d98;
+            --border: #e8e2dc;
+            --white: #fff;
+            --shadow: 0 4px 24px rgba(44, 44, 42, .07);
+            --shadow-hover: 0 8px 32px rgba(44, 44, 42, .13);
+            --radius: 16px
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--beige);
+            color: var(--text-dark);
+            line-height: 1.7;
+            direction: rtl
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        button {
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif
+        }
+
+        /* NAV */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, .97);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 1.5rem
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--rose)
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem
+        }
+
+        .nav-link {
+            color: var(--text-mid);
+            font-size: .95rem;
+            padding-bottom: 2px;
+            border-bottom: 2px solid transparent;
+            transition: all .2s;
+            cursor: pointer
+        }
+
+        .nav-link.active,
+        .nav-link:hover {
+            color: var(--rose);
+            border-color: var(--rose)
+        }
+
+        /* PAGES */
+        .page {
+            display: none;
+            min-height: 80vh
+        }
+
+        .page.active {
+            display: block
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 82vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--beige) 0%, var(--rose-light) 50%, var(--beige) 100%);
+            text-align: center;
+            padding: 4rem 1.5rem
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: var(--text-dark);
+            line-height: 1.3;
+            margin-bottom: 1rem
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-mid);
+            margin-bottom: 2rem
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--rose-light);
+            color: var(--rose-dark);
+            font-size: .8rem;
+            padding: .2rem .8rem;
+            border-radius: 50px;
+            margin-bottom: 1rem
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .7rem 1.75rem;
+            border-radius: 50px;
+            font-size: .95rem;
+            font-weight: 500;
+            border: none;
+            transition: all .2s;
+            font-family: 'Tajawal', sans-serif;
+            cursor: pointer
+        }
+
+        .btn-primary {
+            background: var(--rose);
+            color: #fff
+        }
+
+        .btn-primary:hover {
+            background: var(--rose-dark);
+            transform: translateY(-1px)
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--rose);
+            border: 1.5px solid var(--rose)
+        }
+
+        .btn-outline:hover {
+            background: var(--rose-light)
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 4rem 1.5rem
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--text-dark);
+            margin-bottom: .4rem
+        }
+
+        .section-sub {
+            color: var(--text-mid);
+            margin-bottom: 2rem;
+            font-size: .95rem
+        }
+
+        /* CATEGORIES */
+        .cats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem
+        }
+
+        .cat-card {
+            background: var(--beige);
+            border-radius: var(--radius);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all .25s;
+            cursor: pointer
+        }
+
+        .cat-card:hover {
+            background: var(--rose-light);
+            transform: translateY(-4px)
+        }
+
+        .cat-icon {
+            font-size: 2.5rem;
+            margin-bottom: .6rem
+        }
+
+        .cat-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: .2rem
+        }
+
+        .cat-desc {
+            font-size: .8rem;
+            color: var(--text-light)
+        }
+
+        /* GRID */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all .25s;
+            cursor: pointer
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px)
+        }
+
+        .product-img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+            transition: transform .35s
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05)
+        }
+
+        .product-img-placeholder {
+            width: 100%;
+            height: 210px;
+            background: var(--rose-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem
+        }
+
+        .product-body {
+            padding: 1rem
+        }
+
+        .product-cat {
+            font-size: .72rem;
+            background: var(--rose-light);
+            color: var(--rose-dark);
+            padding: 2px 8px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: .4rem
+        }
+
+        .product-name {
+            font-weight: 500;
+            color: var(--text-dark);
+            margin: .3rem 0;
+            font-size: .95rem
+        }
+
+        .product-desc {
+            font-size: .82rem;
+            color: var(--text-light);
+            margin-bottom: .75rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .price {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--rose)
+        }
+
+        .price-old {
+            font-size: .78rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+            margin-right: .3rem
+        }
+
+        .discount-badge {
+            background: var(--rose);
+            color: #fff;
+            font-size: .7rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 50px
+        }
+
+        .order-btn {
+            background: var(--rose);
+            color: #fff;
+            border: none;
+            padding: .45rem .9rem;
+            border-radius: 50px;
+            font-size: .8rem;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: .3rem;
+            transition: background .2s
+        }
+
+        .order-btn:hover {
+            background: var(--rose-dark)
+        }
+
+        /* DARK SECTION */
+        .section-dark {
+            background: #2c2c2a;
+            padding: 4rem 1.5rem
+        }
+
+        .section-dark .section-title {
+            color: #fff
+        }
+
+        .section-dark .section-sub {
+            color: #b4b2a9
+        }
+
+        /* OFFER CARDS */
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem
+        }
+
+        .offer-card {
+            background: #3a3a38;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid rgba(201, 116, 143, .3)
+        }
+
+        .offer-img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover
+        }
+
+        .offer-body {
+            padding: 1.25rem
+        }
+
+        .offer-title {
+            color: #fff;
+            font-weight: 500;
+            margin: .4rem 0
+        }
+
+        .offer-desc {
+            color: #b4b2a9;
+            font-size: .85rem
+        }
+
+        /* HOW */
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+            max-width: 680px;
+            margin: 0 auto;
+            text-align: center
+        }
+
+        .how-icon {
+            width: 52px;
+            height: 52px;
+            background: var(--rose-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin: 0 auto .75rem
+        }
+
+        /* DETAIL PAGE */
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start
+        }
+
+        .slider-main {
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--beige);
+            position: relative
+        }
+
+        .slider-main img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            cursor: zoom-in
+        }
+
+        .slider-thumbs {
+            display: flex;
+            gap: .5rem;
+            margin-top: .6rem;
+            overflow-x: auto
+        }
+
+        .thumb {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            opacity: .6;
+            transition: all .2s;
+            flex-shrink: 0
+        }
+
+        .thumb.active {
+            border-color: var(--rose);
+            opacity: 1
+        }
+
+        .detail-cat {
+            font-size: .8rem;
+            background: var(--rose-light);
+            color: var(--rose-dark);
+            padding: 3px 10px;
+            border-radius: 50px;
+            display: inline-block
+        }
+
+        .detail-title {
+            font-size: clamp(1.4rem, 3vw, 1.9rem);
+            margin: .6rem 0 .5rem;
+            color: var(--text-dark);
+            line-height: 1.3
+        }
+
+        .detail-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--rose)
+        }
+
+        .qty-ctrl {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            overflow: hidden;
+            width: fit-content
+        }
+
+        .qty-btn {
+            background: #fff;
+            border: none;
+            width: 36px;
+            height: 36px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: var(--text-mid)
+        }
+
+        .qty-val {
+            padding: 0 1rem;
+            font-weight: 600
+        }
+
+        .info-box {
+            background: var(--beige);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            font-size: .85rem;
+            color: var(--text-mid);
+            margin-top: 1.25rem
+        }
+
+        .info-box p+p {
+            margin-top: .3rem
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: .9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: .3rem;
+            margin-bottom: 1.25rem;
+            font-family: 'Tajawal', sans-serif
+        }
+
+        /* FILTER TABS */
+        .filter-tabs {
+            display: flex;
+            gap: .6rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem
+        }
+
+        .filter-tab {
+            padding: .45rem 1.1rem;
+            border-radius: 50px;
+            border: 1.5px solid var(--border);
+            background: #fff;
+            color: var(--text-mid);
+            font-size: .88rem;
+            cursor: pointer;
+            transition: all .2s;
+            font-family: 'Tajawal', sans-serif
+        }
+
+        .filter-tab.active {
+            background: var(--rose);
+            border-color: var(--rose);
+            color: #fff;
+            font-weight: 600
+        }
+
+        /* ABOUT */
+        .about-box {
+            background: #fff;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+            text-align: center
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 1.5rem
+        }
+
+        .feature-card {
+            background: var(--beige);
+            border-radius: 14px;
+            padding: 1.4rem;
+            text-align: center
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            padding: .75rem 1rem;
+            background: var(--rose-light);
+            border-radius: 10px;
+            margin-bottom: .6rem;
+            text-decoration: none;
+            color: var(--text-dark)
+        }
+
+        /* FOOTER */
+        footer {
+            background: #2c2c2a;
+            color: #b4b2a9;
+            padding: 3rem 1.5rem 1.5rem
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .footer-title {
+            color: #fff;
+            margin-bottom: .6rem;
+            font-weight: 500
+        }
+
+        .footer-link {
+            display: block;
+            color: #b4b2a9;
+            font-size: .88rem;
+            margin-bottom: .35rem;
+            cursor: pointer;
+            transition: color .2s
+        }
+
+        .footer-link:hover {
+            color: var(--rose)
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 1rem;
+            text-align: center;
+            font-size: .78rem;
+            max-width: 1200px;
+            margin: 0 auto
+        }
+
+        /* WHATSAPP FLOAT */
+        .wa-float {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #25d366;
+            border: none;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, .4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            cursor: pointer;
+            transition: transform .2s
+        }
+
+        .wa-float:hover {
+            transform: scale(1.1)
+        }
+
+        /* ZOOM */
+        .zoom-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .85);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out
+        }
+
+        .zoom-overlay img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 8px;
+            object-fit: contain
+        }
+
+        .zoom-close {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(255, 255, 255, .15);
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px) {
+            .detail-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 1rem
+            }
+
+            .nav-links {
+                display: none
+            }
+
+            .section {
+                padding: 2.5rem 1rem
+            }
+        }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer
+        }
+
+        .ham-line {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-dark);
+            border-radius: 2px;
+            transition: all .25s
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: #fff;
+            border-top: 1px solid var(--border);
+            padding: .75rem 1.5rem;
+            gap: .25rem
+        }
+
+        .mobile-menu.open {
+            display: flex
+        }
+
+        .mob-link {
+            padding: .65rem 0;
+            font-size: 1rem;
+            color: var(--text-mid);
+            cursor: pointer;
+            border-bottom: 1px solid var(--beige-mid);
+            font-weight: 500;
+            transition: color .2s
+        }
+
+        .mob-link:hover {
+            color: var(--rose)
+        }
+
+        @media(max-width:768px) {
+            .hamburger {
+                display: flex !important
+            }
+
+            .nav-links {
+                display: none !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-inner">
+            <div class="logo" onclick="showPage('home')" style="cursor:pointer">🌹 Rose & Gifts</div>
+            <div class="nav-links">
+                <span class="nav-link active" onclick="showPage('home')">الرئيسية</span>
+                <span class="nav-link" onclick="showPage('products')">المنتجات</span>
+                <span class="nav-link" onclick="showPage('offers')">العروض</span>
+                <span class="nav-link" onclick="showPage('about')">من نحن</span>
+            </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="القائمة">
+                <span class="ham-line"></span>
+                <span class="ham-line"></span>
+                <span class="ham-line"></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <span class="mob-link" onclick="showPage('home');toggleMenu()">🏠 الرئيسية</span>
+            <span class="mob-link" onclick="showPage('products');toggleMenu()">🛍️ المنتجات</span>
+            <span class="mob-link" onclick="showPage('offers');toggleMenu()">🎉 العروض</span>
+            <span class="mob-link" onclick="showPage('about');toggleMenu()">ℹ️ من نحن</span>
+        </div>
+    </nav>
+
+    <!-- زر رجوع للرئيسية -->
+    <div id="home-fab" style="display:none;position:fixed;bottom:5.5rem;left:1.5rem;z-index:999">
+        <button onclick="showPage('home')" title="الرئيسية"
+            style="background:#2c2c2a;color:white;border:none;width:48px;height:48px;border-radius:50%;font-size:1.2rem;cursor:pointer;box-shadow:0 4px 14px rgba(44,44,42,.35);display:flex;align-items:center;justify-content:center;transition:transform .2s"
+            onmouseenter="this.style.transform='scale(1.1)'" onmouseleave="this.style.transform='scale(1)'">
+            🏠
+        </button>
+    </div>
+
+    <!-- ===== HOME ===== -->
+    <div id="page-home" class="page active">
+        <!-- Hero -->
+        <div class="hero">
+            <div>
+                <div class="badge">متجر الورد والهدايا</div>
+                <h1>أجمل الورود والهدايا 🌹</h1>
+                <p>لكل مناسباتك الخاصة — اطلب الآن عبر واتساب</p>
+                <div class="hero-btns">
+                    <button class="btn btn-primary" onclick="showPage('products')">تصفح المنتجات</button>
+                    <button class="btn btn-outline" onclick="showPage('offers')">شوف العروض</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="section" style="background:#fff">
+            <div class="container">
+                <h2 class="section-title">تصفح حسب القسم</h2>
+                <p class="section-sub">اختر ما يناسبك</p>
+                <div class="cats">
+                    <div class="cat-card" onclick="filterAndShow('flowers')">
+                        <div class="cat-icon">🌹</div>
+                        <div class="cat-label">ورد</div>
+                        <div class="cat-desc">بوكيهات وورد طازج</div>
+                    </div>
+                    <div class="cat-card" onclick="filterAndShow('gifts')">
+                        <div class="cat-icon">🎁</div>
+                        <div class="cat-label">هدايا</div>
+                        <div class="cat-desc">هدايا لكل المناسبات</div>
+                    </div>
+                    <div class="cat-card" onclick="filterAndShow('boxes')">
+                        <div class="cat-icon">📦</div>
+                        <div class="cat-label">بوكسات</div>
+                        <div class="cat-desc">بوكسات مميزة جاهزة</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured -->
+        <div class="section">
+            <div class="container">
+                <div
+                    style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1rem">
+                    <div>
+                        <h2 class="section-title">منتجات مميزة ⭐</h2>
+                        <p class="section-sub">الأكثر طلبًا عندنا</p>
+                    </div>
+                    <button class="btn btn-outline" onclick="showPage('products')">عرض الكل</button>
+                </div>
+                <div class="products-grid" id="featured-grid"></div>
+            </div>
+        </div>
+
+        <!-- Offers dark -->
+        <div class="section-dark">
+            <div class="container">
+                <h2 class="section-title" style="text-align:center;margin-bottom:.4rem">عروض خاصة 🎉</h2>
+                <p class="section-sub" style="text-align:center">عروض محدودة — اطلب الآن</p>
+                <div class="offers-grid" id="home-offers-grid"></div>
+                <div style="text-align:center;margin-top:2rem">
+                    <button class="btn btn-primary" onclick="showPage('offers')">كل العروض</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- How -->
+        <div class="section" style="background:#fff">
+            <div class="container" style="text-align:center">
+                <h2 class="section-title">كيف تطلب؟</h2>
+                <p class="section-sub">سهل وسريع في 3 خطوات</p>
+                <div class="how-grid">
+                    <div>
+                        <div class="how-icon">🔍</div><b style="color:var(--text-dark)">تصفح المنتجات</b>
+                        <p style="font-size:.82rem;color:var(--text-light);margin-top:.3rem">اختر اللي يعجبك</p>
+                    </div>
+                    <div>
+                        <div class="how-icon">👆</div><b style="color:var(--text-dark)">اضغط اطلب</b>
+                        <p style="font-size:.82rem;color:var(--text-light);margin-top:.3rem">زر واتساب مباشر</p>
+                    </div>
+                    <div>
+                        <div class="how-icon">💬</div><b style="color:var(--text-dark)">أكمل الطلب</b>
+                        <p style="font-size:.82rem;color:var(--text-light);margin-top:.3rem">تأكيد مع الإدارة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PRODUCTS ===== -->
+    <div id="page-products" class="page">
+        <div class="section">
+            <div class="container">
+                <h1 class="section-title">المنتجات</h1>
+                <p class="section-sub">تصفح مجموعتنا الكاملة</p>
+                <div class="filter-tabs">
+                    <button class="filter-tab active" onclick="setFilter('all',this)">الكل</button>
+                    <button class="filter-tab" onclick="setFilter('flowers',this)">ورد 🌹</button>
+                    <button class="filter-tab" onclick="setFilter('gifts',this)">هدايا 🎁</button>
+                    <button class="filter-tab" onclick="setFilter('boxes',this)">بوكسات 📦</button>
+                </div>
+                <div class="products-grid" id="products-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PRODUCT DETAIL ===== -->
+    <div id="page-detail" class="page">
+        <div class="section">
+            <div class="container">
+                <button class="back-btn" onclick="goBack()">← رجوع</button>
+                <div class="detail-grid" id="detail-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== OFFERS ===== -->
+    <div id="page-offers" class="page">
+        <div class="section">
+            <div class="container">
+                <h1 class="section-title">العروض والخصومات 🎉</h1>
+                <p class="section-sub">عروض محدودة لا تفوتها</p>
+                <div class="offers-grid" id="offers-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== ABOUT ===== -->
+    <div id="page-about" class="page">
+        <div class="section">
+            <div class="container" style="max-width:800px">
+                <h1 class="section-title">من نحن</h1>
+                <p class="section-sub">بنحكي لك عن نفسنا</p>
+                <div class="about-box">
+                    <div style="font-size:3.5rem;margin-bottom:.5rem">🌹</div>
+                    <h2 style="font-size:1.7rem;color:var(--text-dark);margin-bottom:1rem">Rose & Gifts</h2>
+                    <p style="color:var(--text-mid);line-height:1.9">متجرنا متخصص في تقديم أجمل الورود والهدايا لكل
+                        مناسباتك الخاصة. نسعى دائماً لتقديم أفضل جودة بأسعار مناسبة مع توصيل سريع.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div style="font-size:2rem;margin-bottom:.5rem">🌹</div><b
+                            style="color:var(--text-dark);font-size:.9rem">ورد طازج</b>
+                        <p style="font-size:.78rem;color:var(--text-light);margin-top:.2rem">نختار أجود الأنواع يومياً
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div style="font-size:2rem;margin-bottom:.5rem">🎁</div><b
+                            style="color:var(--text-dark);font-size:.9rem">هدايا متنوعة</b>
+                        <p style="font-size:.78rem;color:var(--text-light);margin-top:.2rem">لكل المناسبات والأذواق</p>
+                    </div>
+                    <div class="feature-card">
+                        <div style="font-size:2rem;margin-bottom:.5rem">🚀</div><b
+                            style="color:var(--text-dark);font-size:.9rem">توصيل سريع</b>
+                        <p style="font-size:.78rem;color:var(--text-light);margin-top:.2rem">نوصلك في أسرع وقت</p>
+                    </div>
+                    <div class="feature-card">
+                        <div style="font-size:2rem;margin-bottom:.5rem">💯</div><b
+                            style="color:var(--text-dark);font-size:.9rem">ضمان الجودة</b>
+                        <p style="font-size:.78rem;color:var(--text-light);margin-top:.2rem">رضاك هو أولويتنا</p>
+                    </div>
+                </div>
+                <div style="background:#fff;border-radius:16px;padding:2rem;box-shadow:var(--shadow)">
+                    <h3 style="font-weight:600;margin-bottom:1rem;color:var(--text-dark)">📞 تواصل معنا</h3>
+                    <a class="contact-item" href="https://wa.me/201012345678" target="_blank">
+                        <span style="font-size:1.2rem">💬</span>
+                        <div>
+                            <div style="font-weight:500;font-size:.9rem">واتساب</div>
+                            <div style="font-size:.8rem;color:var(--text-light)">201012345678+</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div style="font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:.5rem">🌹 Rose & Gifts</div>
+                <p style="font-size:.85rem;line-height:1.7">أجمل الورود والهدايا لكل مناسباتك الخاصة</p>
+            </div>
+            <div>
+                <div class="footer-title">روابط سريعة</div>
+                <span class="footer-link" onclick="showPage('products')">المنتجات</span>
+                <span class="footer-link" onclick="showPage('offers')">العروض</span>
+                <span class="footer-link" onclick="showPage('about')">من نحن</span>
+            </div>
+            <div>
+                <div class="footer-title">تواصل معنا</div>
+                <a href="https://wa.me/201012345678" target="_blank"
+                    style="color:#25d366;font-size:.88rem;display:block;margin-bottom:.4rem">💬 واتساب</a>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2025 Rose & Gifts — جميع الحقوق محفوظة</div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <button class="wa-float" onclick="window.open('https://wa.me/201012345678','_blank')" title="تواصل واتساب">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </button>
+
+    <!-- Zoom overlay -->
+    <div class="zoom-overlay" id="zoom-overlay" style="display:none" onclick="closeZoom()">
+        <img id="zoom-img" src="" alt="">
+        <button class="zoom-close" onclick="closeZoom()">×</button>
+    </div>
+
+    <script>
+        // ===== DATA =====
+        const WHATSAPP = '201012345678'; // ← غيّر الرقم هنا
+
+        const PRODUCTS = [
+            { id: '1', name: 'بوكيه ورد جوري', category: 'flowers', price: 350, salePrice: null, images: ['https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=600'], desc: 'بوكيه ورد جوري طازج مكوّن من 12 وردة جميلة، مثالي لكل المناسبات الرومانسية', featured: true },
+            { id: '2', name: 'بوكيه ورد أحمر فاخر', category: 'flowers', price: 550, salePrice: 450, images: ['https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=600', 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=600'], desc: 'بوكيه فاخر 24 وردة حمراء — هدية مثالية للأحباء', featured: true },
+            { id: '3', name: 'هدية عيد ميلاد', category: 'gifts', price: 400, salePrice: null, images: ['https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600'], desc: 'هدية متكاملة لعيد الميلاد تحتوي على هدايا مختارة بعناية', featured: true },
+            { id: '4', name: 'بوكس ورد وشوكولاتة', category: 'boxes', price: 600, salePrice: 500, images: ['https://images.unsplash.com/photo-1512909006721-3d6018887383?w=600'], desc: 'بوكس فاخر يحتوي على ورد وشوكولاتة بلجيكية فاخرة', featured: true },
+            { id: '5', name: 'ورد أبيض رومانسي', category: 'flowers', price: 300, salePrice: null, images: ['https://images.unsplash.com/photo-1490750967868-88df5691cc37?w=600'], desc: 'بوكيه ورد أبيض ناعم — نقاء وأناقة في نفس الوقت', featured: false },
+            { id: '6', name: 'بوكس هدايا VIP', category: 'boxes', price: 900, salePrice: 750, images: ['https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=600'], desc: 'بوكس VIP فاخر لأحلى المناسبات — يتضمن ورد وهدايا مختارة', featured: true },
+            { id: '7', name: 'باقة زهور ملونة', category: 'flowers', price: 280, salePrice: null, images: ['https://images.unsplash.com/photo-1487530811015-780ae56577ad?w=600'], desc: 'باقة زهور ملونة جميلة وبهجة تضيف الفرح لأي مكان', featured: false },
+            { id: '8', name: 'هدية خطوبة', category: 'gifts', price: 700, salePrice: 600, images: ['https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?w=600'], desc: 'هدية خطوبة متكاملة تجمع بين الورد والهدايا الراقية', featured: true },
+        ];
+
+        const OFFERS = [
+            { id: '1', title: 'عرض عيد الأم 🌸', desc: 'خصم خاص بمناسبة عيد الأم على كل البوكيهات', pct: 20, img: 'https://images.unsplash.com/photo-1490750967868-88df5691cc37?w=500', occasion: 'عيد الأم' },
+            { id: '2', title: 'باقة الخطوبة 💍', desc: 'باقة متكاملة للخطوبة بسعر مميز جداً', pct: 15, img: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=500', occasion: 'خطوبة' },
+            { id: '3', title: 'عرض عيد الميلاد 🎂', desc: 'احتفل بأحلى طريقة — خصم خاص على البوكسات', pct: 25, img: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=500', occasion: 'عيد ميلاد' },
+        ];
+
+        // ===== STATE =====
+        let currentFilter = 'all';
+        let currentProduct = null;
+        let prevPage = 'home';
+        let currentSlide = 0;
+
+        // ===== HELPERS =====
+        const catLabel = c => ({ flowers: 'ورد 🌹', gifts: 'هدايا 🎁', boxes: 'بوكسات 📦' }[c] || c);
+
+        function orderWA(p, qty = 1) {
+            const price = p.salePrice || p.price;
+            const msg = encodeURIComponent(`مرحبًا 👋\nأريد طلب:\n- المنتج: ${p.name}\n- السعر: ${price} جنيه\n- الكمية: ${qty}`);
+            window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, '_blank');
+        }
+
+        function makeProductCard(p) {
+            const disc = p.salePrice ? Math.round((1 - p.salePrice / p.price) * 100) : 0;
+            const price = p.salePrice || p.price;
+            return `
+  <div class="product-card" onclick="showDetail('${p.id}')">
+    <div style="position:relative;overflow:hidden">
+      ${p.images[0]
+                    ? `<img class="product-img" src="${p.images[0]}" alt="${p.name}" loading="lazy">`
+                    : `<div class="product-img-placeholder">${catLabel(p.category).slice(-2)}</div>`}
+      ${disc ? `<div style="position:absolute;top:10px;right:10px;background:var(--rose);color:#fff;font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:50px">-${disc}%</div>` : ''}
+      ${p.featured ? `<div style="position:absolute;top:10px;left:10px;background:rgba(44,44,42,.75);color:#fff;font-size:.68rem;padding:3px 9px;border-radius:50px">مميز ⭐</div>` : ''}
+    </div>
+    <div class="product-body">
+      <div class="product-cat">${catLabel(p.category)}</div>
+      <div class="product-name">${p.name}</div>
+      <div class="product-desc">${p.desc}</div>
+      <div class="product-footer">
+        <div>
+          <span class="price">${price} جنيه</span>
+          ${p.salePrice ? `<span class="price-old">${p.price}</span>` : ''}
+        </div>
+        <button class="order-btn" onclick="event.stopPropagation();orderWA(PRODUCTS.find(x=>x.id==='${p.id}'))">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          اطلب
+        </button>
+      </div>
+    </div>
+  </div>`;
+        }
+
+        function makeOfferCard(o, dark = false) {
+            return `
+  <div class="${dark ? 'offer-card' : ''}" style="${dark ? '' : 'background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border)'}">
+    ${o.img ? `<img class="offer-img" src="${o.img}" alt="${o.title}" loading="lazy">` : `<div style="height:120px;background:linear-gradient(135deg,var(--rose-light),var(--beige));display:flex;align-items:center;justify-content:center;font-size:3rem">🎁</div>`}
+    <div style="padding:1.25rem">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
+        <div class="${dark ? 'offer-title' : ''}" style="${dark ? '' : 'font-weight:600;color:var(--text-dark);font-size:1rem'}">${o.title}</div>
+        <div style="background:var(--rose);color:#fff;font-size:.75rem;font-weight:700;padding:3px 10px;border-radius:50px;white-space:nowrap;margin-right:.5rem">خصم ${o.pct}%</div>
+      </div>
+      <p class="${dark ? 'offer-desc' : ''}" style="${dark ? '' : 'color:var(--text-mid);font-size:.85rem;margin-bottom:.75rem'}">${o.desc}</p>
+      ${o.occasion ? `<span style="background:var(--rose-light);color:var(--rose-dark);font-size:.72rem;padding:2px 8px;border-radius:50px">${o.occasion}</span>` : ''}
+      <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:.9rem" onclick="window.open('https://wa.me/${WHATSAPP}?text='+encodeURIComponent('مرحبًا أريد الاستفسار عن عرض: ${o.title}'),'_blank')">
+        استفسر عن العرض
+      </button>
+    </div>
+  </div>`;
+        }
+
+        // ===== RENDER =====
+        function renderFeatured() {
+            const el = document.getElementById('featured-grid');
+            el.innerHTML = PRODUCTS.filter(p => p.featured).slice(0, 8).map(makeProductCard).join('');
+        }
+
+        function renderHomeOffers() {
+            const el = document.getElementById('home-offers-grid');
+            el.innerHTML = OFFERS.slice(0, 3).map(o => makeOfferCard(o, true)).join('');
+        }
+
+        function renderProducts(filter = 'all') {
+            const el = document.getElementById('products-grid');
+            const list = filter === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === filter);
+            el.innerHTML = list.map(makeProductCard).join('');
+        }
+
+        function renderOffers() {
+            const el = document.getElementById('offers-grid');
+            el.innerHTML = OFFERS.map(o => makeOfferCard(o, false)).join('');
+        }
+
+        // ===== NAVIGATION =====
+        function showPage(name) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            document.getElementById('page-' + name).classList.add('active');
+            document.querySelectorAll('.nav-link').forEach(l => { if (l.getAttribute('onclick')?.includes("'" + name + "'")) l.classList.add('active'); });
+            // show/hide home fab
+            const fab = document.getElementById('home-fab');
+            if (fab) fab.style.display = name === 'home' ? 'none' : 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function toggleMenu() {
+            const m = document.getElementById('mobile-menu');
+            m.classList.toggle('open');
+        }
+
+        function filterAndShow(cat) {
+            currentFilter = cat;
+            showPage('products');
+            document.querySelectorAll('.filter-tab').forEach(t => {
+                t.classList.toggle('active', t.getAttribute('onclick')?.includes("'" + cat + "'"));
+            });
+            renderProducts(cat);
+        }
+
+        function setFilter(cat, btn) {
+            currentFilter = cat;
+            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            renderProducts(cat);
+        }
+
+        function showDetail(id) {
+            currentProduct = PRODUCTS.find(p => p.id === id);
+            if (!currentProduct) return;
+            currentSlide = 0;
+            prevPage = document.querySelector('.page.active')?.id?.replace('page-', '') || 'products';
+            renderDetail();
+            showPage('detail');
+        }
+
+        function goBack() { showPage(prevPage); }
+
+        function renderDetail() {
+            const p = currentProduct;
+            const disc = p.salePrice ? Math.round((1 - p.salePrice / p.price) * 100) : 0;
+            const displayPrice = p.salePrice || p.price;
+            const imgs = p.images;
+
+            document.getElementById('detail-content').innerHTML = `
+    <div>
+      <div class="slider-main">
+        <img id="slider-img" src="${imgs[currentSlide]}" alt="${p.name}" onclick="openZoom('${imgs[currentSlide]}')">
+        ${imgs.length > 1 ? `
+        <div style="position:absolute;top:50%;right:10px;transform:translateY(-50%)">
+          <button onclick="slideChange(-1)" style="background:rgba(255,255,255,.9);border:none;width:34px;height:34px;border-radius:50%;font-size:1rem;cursor:pointer">›</button>
+        </div>
+        <div style="position:absolute;top:50%;left:10px;transform:translateY(-50%)">
+          <button onclick="slideChange(1)" style="background:rgba(255,255,255,.9);border:none;width:34px;height:34px;border-radius:50%;font-size:1rem;cursor:pointer">‹</button>
+        </div>
+        `: ''}
+      </div>
+      ${imgs.length > 1 ? `
+      <div class="slider-thumbs">
+        ${imgs.map((img, i) => `<img class="thumb ${i === 0 ? 'active' : ''}" src="${img}" id="thumb-${i}" onclick="slideTo(${i})" loading="lazy">`).join('')}
+      </div>`: ''}
+    </div>
+    <div>
+      <div class="detail-cat">${catLabel(p.category)}</div>
+      <h1 class="detail-title">${p.name}</h1>
+      <p style="color:var(--text-mid);line-height:1.8;margin-bottom:1.25rem">${p.desc}</p>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;flex-wrap:wrap">
+        <span class="detail-price">${displayPrice} جنيه</span>
+        ${p.salePrice ? `<span style="font-size:1rem;color:var(--text-light);text-decoration:line-through">${p.price} جنيه</span><span class="discount-badge">-${disc}%</span>` : ''}
+      </div>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem">
+        <span style="font-size:.9rem;color:var(--text-mid)">الكمية:</span>
+        <div class="qty-ctrl">
+          <button class="qty-btn" onclick="changeQty(-1)">−</button>
+          <span class="qty-val" id="qty-val">1</span>
+          <button class="qty-btn" onclick="changeQty(1)">+</button>
+        </div>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:1rem;font-size:1rem" onclick="orderWA(currentProduct, parseInt(document.getElementById('qty-val').textContent))">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        اطلب عبر واتساب
+      </button>
+      <div class="info-box">
+        <p>✅ التوصيل متاح — تواصل معنا للتفاصيل</p>
+        <p>💳 الدفع عند الاستلام أو تحويل</p>
+      </div>
+    </div>`;
+        }
+
+        let qty = 1;
+        function changeQty(d) {
+            qty = Math.max(1, qty + d);
+            const el = document.getElementById('qty-val');
+            if (el) el.textContent = qty;
+        }
+
+        function slideChange(dir) {
+            const imgs = currentProduct.images;
+            currentSlide = (currentSlide + dir + imgs.length) % imgs.length;
+            slideTo(currentSlide);
+        }
+
+        function slideTo(i) {
+            currentSlide = i;
+            const img = document.getElementById('slider-img');
+            if (img) img.src = currentProduct.images[i];
+            document.querySelectorAll('.thumb').forEach((t, idx) => t.classList.toggle('active', idx === i));
+        }
+
+        function openZoom(src) {
+            document.getElementById('zoom-img').src = src;
+            document.getElementById('zoom-overlay').style.display = 'flex';
+        }
+        function closeZoom() { document.getElementById('zoom-overlay').style.display = 'none'; }
+
+        // ===== INIT =====
+        renderFeatured();
+        renderHomeOffers();
+        renderProducts();
+        renderOffers();
+    </script>
+</body>
+
+</html>
